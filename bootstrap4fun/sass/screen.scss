@@ -1,0 +1,17 @@
+@import "bootstrap";
+
+li:nth-child(-n+11) p {
+  font-size: 1rem;
+  background-color: coral;
+}
+li:nth-child(-n+9) p {
+  @extend .bg-success;
+}
+li:nth-child(4) p {
+  font-size: 1rem;
+  background-color: deepskyblue;
+}
+
+body {
+  background-color: snow;
+}
