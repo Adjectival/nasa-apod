@@ -1,0 +1,56 @@
+@import "bourbon/bourbon";
+@import "neat/neat-helpers";
+@import "neat/neat";
+
+// resets
+*, *::before, *::after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding:0;
+}
+// responsive
+@mixin resizing {
+  @include media($mobile) {
+    width: 100%;
+  }
+  @include media($tablet) {
+    width: 50%;
+  }
+  @include media($laptop) {
+    width: 33%;
+  }
+  @include media($desktop) {
+    width: 25%;
+  }
+}
+// @include media(queries)
+$mobile: new-breakpoint(min-width 1px and max-width 539px);
+$tablet: new-breakpoint(min-width 540px);
+$laptop: new-breakpoint(min-width 1000px);
+$desktop: new-breakpoint(min-width 1400px);
+
+// objects
+.thing {
+  // @include resizing;
+  // border: 1px firebrick dotted;
+  padding: 4vw;
+}
+.headline {
+  width: 100vw;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+// containers
+section {
+  background: url("../img/frontier_fields_orange.png");
+  display: flex;
+}
+.flexbox {
+  width: 100vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}

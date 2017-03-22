@@ -1,0 +1,30 @@
+$parallax-window-height: 20em;
+$parallax-background-height: $parallax-window-height * 2;
+
+.parallax-window {
+  max-height: $parallax-window-height;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  width: 100%;
+}
+.parallax-background {
+  background: url('../img/prisma_mug.png');
+  background-position: top;
+  background-size: cover;
+  background-color: maroon;
+  opacity: 0.7;
+  height: $parallax-background-height;
+  left: 0;
+  position: absolute;
+  top: - $parallax-window-height / 5;
+  width: 100%;
+}
+.parallax-static-content {
+  color: maroon;
+  padding: 2em 0;
+  position: relative;
+  z-index: 9;
+}
+
+// Based on http://codepen.io/skeurentjes/
