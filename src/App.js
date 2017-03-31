@@ -1,21 +1,31 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+export default class Apod extends React.Component {
+  constructor(props) {
+    super(props);
 
-class App extends Component {
+    this.state = {string: []};
+  }
+
+  componentDidMount() {
+    this.Apod();
+  }
+
+  Apod() {
+    return $.getJSON('https://api.nasa.gov/planetary/apod?api_key=Y9lz2eFRkrFM9huTPnkSCSEMnsVaGWtiKkZFB6VO')
+      .then((data) => {
+        this.setState({ string: data.results });
+      });
+  }
+
   render() {
-    return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+    const strings = this.state.string.map((item, i) => {
+      return <div>
+        <h1>{item.date}</h1>
+        <span>{item.explanation}, {item.hdurl}, {item.media_type}, {item.service_version}, {item.title}, {item.url}</span>
       </div>
-    );
+    });
+
+    return <div id="layout-content" className="layout-content-wrapper">
+      <div className="panel-list">{ strings }</div>
+    </div>
   }
 }
-
-export default App;

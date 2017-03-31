@@ -7,12 +7,30 @@
   },
   "dependencies": {
     "react": "^15.4.2",
-    "react-dom": "^15.4.2"
+    "react-addons-css-transition-group": "^15.4.2",
+    "react-addons-transition-group": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "reactstrap": "^4.4.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
-  }
+  },
+  "description": "![screenshot](/img/screenshot.png) ### Description",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://Adjectival@github.com/Adjectival/nasa-apod.git"
+  },
+  "keywords": [
+    "react"
+  ],
+  "author": "Jacks",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Adjectival/nasa-apod/issues"
+  },
+  "homepage": "https://github.com/Adjectival/nasa-apod#readme"
 }
