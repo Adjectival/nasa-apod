@@ -1,31 +1,33 @@
 export default class Apod extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = {string: []};
+    this.state = {
+      json: []
+    };
   }
 
-  componentDidMount() {
-    this.Apod();
-  }
-
-  Apod() {
+  Apod(){
     return $.getJSON('https://api.nasa.gov/planetary/apod?api_key=Y9lz2eFRkrFM9huTPnkSCSEMnsVaGWtiKkZFB6VO')
       .then((data) => {
-        this.setState({ string: data.results });
+        return data.results;
       });
   }
 
-  render() {
-    const strings = this.state.string.map((item, i) => {
-      return <div>
-        <h1>{item.date}</h1>
-        <span>{item.explanation}, {item.hdurl}, {item.media_type}, {item.service_version}, {item.title}, {item.url}</span>
-      </div>
-    });
 
-    return <div id="layout-content" className="layout-content-wrapper">
-      <div className="panel-list">{ strings }</div>
-    </div>
+  render() {
+    this.Apod().then((res) => {
+      this.state = {json: res};
+    });
+    return (
+      <div>
+        {this.state.json.map((item, i) => {
+          return(
+            <h1></h1>
+            <span></span>
+            <span></span>
+          )
+        })}
+      </div>
+    )
   }
 }
